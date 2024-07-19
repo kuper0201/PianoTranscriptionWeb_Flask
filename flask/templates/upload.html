@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="CodeHim">
+      <title> Piano Transcription </title>
+      <link rel="stylesheet" href=" {{ url_for('static', filename='css/style.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+   </head>
+   <body>
+      <main class="cd__main">
+         <form action="http://localhost:5000/fileUpload" method="POST" enctype="multipart/form-data" id="uploadForm">
+            <div class="custom-uploader">
+               <h2 style="text-align: center;">Upload Audio(mp3, wav)</h2> 
+               <input type="file" accept="audio/mp3,audio/wav" name="file" id="fileInput"/>
+               <div class="submit-container">
+                  <button type="submit" class="submit-btn" id="submitBtn" disabled>Submit</button>
+                  <!-- 다운로드 링크를 위한 컨테이너 추가 -->
+                  <div id="downloadContainer" style="display: none; margin-top: 20px; text-align: center;">
+                     <a href="#" id="downloadLink" class="download-btn">Download MIDI File</a>
+                  </div>
+               </div>
+            </div>
+            
+         </form>
+         
+      </main>
+      <!-- 로딩 오버레이 추가 -->
+      <div id="loadingOverlay" class="loading-overlay">
+         <div class="loading-spinner"></div>
+         <p>Processing... Please wait.</p>
+      </div>
+      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+   </body>
+</html>
